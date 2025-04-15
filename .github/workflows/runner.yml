@@ -1,0 +1,19 @@
+name: Django CI
+
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Build
+        run: |
+          echo "Building the project..."
+          cd /home/bishal/django-demo\
+          git checkout dev
+          git pull origin dev
+          python manage.py runserver
